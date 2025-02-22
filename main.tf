@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "main" {
-  cidr_block           = var.vpc_cidr_block
+  cidr_block           = var.vpc-cidr_block
   enable_dns_support   = true
   enable_dns_hostnames = true
 
@@ -15,7 +15,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = var.subnet_cidr_block
+  cidr_block              = var.subnet-cidr_block
   map_public_ip_on_launch = true
   availability_zone       = var.subnet_az
 
@@ -87,7 +87,7 @@ resource "aws_security_group" "allow_all" {
 }
 
 resource "aws_instance" "web-1" {
-  ami                         = "ami-0866a3c8686eaeeba"
+  ami                         = "ami-087a0156cb826e921"
   availability_zone           = var.ec2_az
   instance_type               = var.ec2_type
   key_name                    = var.key_name
